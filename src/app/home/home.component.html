@@ -1,0 +1,48 @@
+<div>
+  <h1 x-large class="sample-content">Search Mini Here</h1>
+
+  <hr>
+    <!--<h4>Local State</h4>-->
+
+    <form (ngSubmit)="submitState(start.value + end.value)" autocomplete="off">
+
+      <input
+        [value]="start.value"
+        (input)="start.value = $event.target.value"
+        placeholder="Start Location"
+        autofocus>
+      <br />
+      <input
+        [value]="end.value"
+        (input)="end.value = $event.target.value"
+        placeholder="End Location"
+        autofocus>
+      <br />
+
+      <button>Submit</button>
+    </form>
+    <!--
+        <input type="text" [value]="localState.value" (input)="localState.value = $event.target.value" autofocus>
+        Rather than wiring up two-way data-binding ourselves with [value] and (input)
+        we can use Angular's [(ngModel)] syntax
+        <input type="text" name="textInput" [(ngModel)]="localState.value" autofocus>
+      -->
+
+    <!--<pre>this.localState = {{ start | json }}</pre>
+    
+      <div>
+        For hot module reloading run
+        <pre>npm run start:hmr</pre>
+      </div>
+      -->
+
+  <hr>
+
+  
+  <div id="map_canvas" style="float:left;width:70%;height:480px;">
+  <div style="float:right;width:30%;height:480px;overflow:auto">   
+    <div id="directions_panel" style="width:100%"></div>
+  </div>
+  </div>
+
+</div>

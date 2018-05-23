@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/foundation.css">
+    <link rel="stylesheet" href="/stylesheets/w3.css">
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfyBPzvRgrPuLP1CvFiErhpWvFOhWCjt4"></script>
+    <script src="/javascripts/Geolocation.js" charset="utf-8" ></script>
+  </head>
+  <body onload="initialize();localS()" id="wrapper">
+    <div id="map_canvas" style="width:100%;height:100%;position: absolute;top: 0;left: 0;"></div>
+
+  <div id="over_map" style="width:220px;position: absolute;top: 80px;left: 10px;">        
+
+      <%
+        var arrX = new Array()
+        var arrY = new Array()
+        var arrLoc = new Array()
+        var arrAllX = new Array()
+        var arrAllY = new Array()
+
+         for ( var i = 0 ; i < data.length ; i++){ 
+            if(data[i].X != null) {
+              arrX.push(data[i].X)
+              arrY.push(data[i].Y)
+              arrLoc.push(data[i].STOP_NAMEC)
+              arrAllX.push(data[i].X)
+              arrAllY.push(data[i].Y)
+            }else{
+              arrLoc.push(data[i].STOP_NAMEC)
+              arrAllX.push(data[i].X)
+              arrAllY.push(data[i].Y)
+            }
+         } 
+         %>
+
+    <div class="w3-large">
+    <form action="/" method="post">
+      <input class="w3-input w3-border" type="text" id="txtFrom" name="txtFrom" placeholder="Start Location" autofocus required >
+      <input class="w3-input w3-border" type="text" id="txtEnd" name="txtEnd" placeholder="End Location" autofocus required >
+      <button class="btn1 w3-button w3-section" id="btnSubmit">Submit</button>
+    </form>
+    </div></div>
+        
+        <button onclick="getLocation()" style="position: absolute;top: 75vh;right: 10px;background-image:url(/images/fi-target-two.svg);width:30px;height:30px;background-size: 30px 30px;background-color:white;" ></button>
+        
+      <div id="directions_panel"></div>
+  
+  </body>
+
+    
+</html>
